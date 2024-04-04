@@ -90,8 +90,8 @@ function nl(stream) {
   stream?.write('\n');
 }
 
-server.listen(5090, '0.0.0.0', () => {
-  console.log('[system] listening on port 5090');
+server.listen(process.env.SERVER_PORT, '0.0.0.0', () => {
+  console.log('[system] listening on port ' + process.env.SERVER_PORT);
   events.on('message', (data) => {
     console.log(`[${data.user}] ${data.message}`)
   });
